@@ -14,13 +14,13 @@ function RelatedCard({ r }) {
       className={`${tilt.className} group block overflow-hidden rounded-[10px] border border-[#222] bg-panel no-underline hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]`}
     >
       <div
-        className="h-[150px] w-full bg-cover bg-center"
+        className="h-[110px] w-full bg-cover bg-center sm:h-[150px]"
         style={{ backgroundImage: `url(${r.img})` }}
         role="img"
         aria-label={r.title}
       />
-      <div className="relative z-[2] p-3">
-        <h3 className="text-base text-wheat transition group-hover:text-gold">{r.title}</h3>
+      <div className="relative z-[2] p-2.5 sm:p-3">
+        <h3 className="text-sm leading-tight text-wheat sm:text-base transition group-hover:text-gold">{r.title}</h3>
       </div>
     </Link>
   );
@@ -99,7 +99,7 @@ export default function ArtifactDetail() {
         {related.length > 0 && (
           <div className="mt-16">
             <h2 className="mb-5 text-xl text-gold">Related Artifacts</h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="card-grid">
               {related.map((r) => (
                 <RelatedCard key={r.slug} r={r} />
               ))}
