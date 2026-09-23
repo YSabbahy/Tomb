@@ -16,7 +16,7 @@ function TeamCard({ member }) {
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className={`${tilt.className} overflow-hidden rounded-[10px] border border-[#222] bg-panel p-5 text-center hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]`}
+      className={`${tilt.className} overflow-hidden rounded-[10px] border border-[#222] bg-panel p-3 text-center hover:border-gold sm:p-5 hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]`}
     >
       <img
         src={member.img}
@@ -28,11 +28,11 @@ function TeamCard({ member }) {
         className="relative z-[2] mx-auto mb-4 aspect-square w-full max-w-[180px] rounded-[10px] border-2 border-gold object-cover"
       />
       <div className="relative z-[2]">
-        <h2 className="text-[20px] text-gold">{member.name}</h2>
-        <p className="text-sm italic tracking-widest text-wheat">{member.role}</p>
-        <p className="mt-3 text-sm normal-case text-[#aaa]">{member.bio}</p>
+        <h2 className="text-[15px] leading-tight text-gold sm:text-[20px]">{member.name}</h2>
+        <p className="mt-1 text-xs italic tracking-wide text-wheat sm:mt-0 sm:text-sm sm:tracking-widest">{member.role}</p>
+        <p className="mt-2 text-xs leading-snug normal-case text-[#aaa] sm:mt-3 sm:text-sm sm:leading-normal">{member.bio}</p>
 
-        <div className="mt-4 flex items-center justify-center gap-3">
+        <div className="mt-3 flex items-center justify-center gap-2 sm:mt-4 sm:gap-3">
           {socialLinks.map((s) => (
             <a
               key={s.icon}
@@ -40,7 +40,7 @@ function TeamCard({ member }) {
               target="_blank"
               rel="noreferrer"
               aria-label={`${member.name} on ${s.label}`}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-gold text-sm text-gold no-underline transition duration-300 hover:-translate-y-0.5 hover:bg-gold hover:text-black"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-gold text-xs text-gold sm:h-9 sm:w-9 sm:text-sm no-underline transition duration-300 hover:-translate-y-0.5 hover:bg-gold hover:text-black"
             >
               <Icon name={s.icon} />
             </a>
@@ -60,7 +60,7 @@ export default function TeamPage() {
         crumb="Team"
       />
 
-      <div className="mx-auto mt-10 grid w-[90%] max-w-[1200px] grid-cols-1 gap-6 pb-20 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="card-grid mx-auto mt-10 w-[90%] max-w-[1200px] pb-20">
         {team.map((member) => (
           <TeamCard key={member.name} member={member} />
         ))}
