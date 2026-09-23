@@ -17,17 +17,17 @@ function ArtifactCard({ a }) {
       className={`${tilt.className} group block overflow-hidden rounded-[10px] border border-[#222] bg-panel text-left no-underline hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]`}
     >
       <div
-        className="h-[220px] w-full bg-cover bg-center transition duration-500 group-hover:scale-105"
+        className="h-[130px] w-full bg-cover sm:h-[220px] bg-center transition duration-500 group-hover:scale-105"
         style={{ backgroundImage: `url(${a.img})` }}
       />
-      <div className="relative z-[2] p-4">
-        <span className="text-xs font-bold uppercase tracking-widest text-gold">
+      <div className="relative z-[2] p-2.5 sm:p-4">
+        <span className="text-[10px] font-bold uppercase tracking-wider text-gold sm:text-xs sm:tracking-widest">
           {a.category}
         </span>
-        <h2 className="mt-1 text-xl normal-case text-wheat transition group-hover:text-gold">
+        <h2 className="mt-1 text-[15px] leading-tight normal-case text-wheat transition group-hover:text-gold sm:text-xl">
           {a.title}
         </h2>
-        <p className="mt-2 text-sm normal-case text-[#aaa]">{a.excerpt}</p>
+        <p className="mt-1.5 text-xs leading-snug normal-case text-[#aaa] sm:mt-2 sm:text-sm sm:leading-normal">{a.excerpt}</p>
       </div>
     </Link>
   );
@@ -87,7 +87,7 @@ export default function Artifacts() {
             No artifacts match your search.
           </p>
         ) : (
-          <div className="grid grid-cols-1 gap-6 pb-20 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
+          <div className="card-grid pb-20" aria-live="polite">
             {filtered.map((a) => (
               <ArtifactCard key={a.slug} a={a} />
             ))}
