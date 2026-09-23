@@ -10,11 +10,11 @@ export default function News() {
     <div>
       <SectionTitle title="Recent News" tight />
 
-      <div className="mx-auto grid w-[90%] max-w-[1200px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="card-grid mx-auto w-[90%] max-w-[1200px]">
         {preview.map((item) => (
           <div
             key={item.slug}
-            className="group relative overflow-hidden rounded-[10px] border border-[#222] bg-panel p-2.5 text-center transition duration-500 hover:-translate-y-1 hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]"
+            className="group relative overflow-hidden rounded-[10px] border border-[#222] bg-panel p-2 text-center transition sm:p-2.5 duration-500 hover:-translate-y-1 hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]"
           >
             <span className="absolute inset-0 z-[1] h-0 w-full bg-gold/20 transition-all duration-500 group-hover:h-full" />
 
@@ -26,9 +26,9 @@ export default function News() {
                 height={200}
                 loading="lazy"
                 decoding="async"
-                className="mx-auto my-2 aspect-square w-full max-w-[200px] rounded object-cover p-2.5"
+                className="mx-auto my-2 aspect-square w-full max-w-[200px] rounded object-cover p-1 sm:p-2.5"
               />
-              <div className="mb-2 flex flex-wrap justify-center gap-2.5 text-sm">
+              <div className="mb-2 flex flex-wrap justify-center gap-x-2 gap-y-1 text-[11px] sm:gap-2.5 sm:text-sm">
                 <span>
                   <Icon name="pen-nib" className="text-gold" /> {item.tag}
                 </span>
@@ -40,10 +40,10 @@ export default function News() {
                   <Icon name="eye" className="text-gold" /> {item.views}
                 </span>
               </div>
-              <h2 className="p-2.5 text-gold transition-colors duration-500 group-hover:text-white">
+              <h2 className="p-1.5 text-[15px] leading-tight text-gold transition-colors sm:p-2.5 sm:text-base duration-500 group-hover:text-white">
                 {item.title}
               </h2>
-              <p className="p-2.5 transition-colors duration-500 group-hover:text-white/60">
+              <p className="p-1.5 text-[13px] leading-snug transition-colors duration-500 group-hover:text-white/60 sm:p-2.5 sm:text-base sm:leading-normal">
                 {item.excerpt}
               </p>
               <Link
