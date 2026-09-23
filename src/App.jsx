@@ -29,7 +29,7 @@ function PageTransition({ children }) {
 
 export default function App() {
   return (
-    <div className="overflow-x-hidden bg-ink text-wheat">
+    <div className="overflow-x-clip bg-ink text-wheat">
       <a
         href="#main-content"
         className="sr-only z-[2000] rounded bg-gold px-4 py-2 font-bold text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
