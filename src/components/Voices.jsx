@@ -24,16 +24,16 @@ export default function Voices() {
       <SectionTitle title="Voices from the Past & Present" tight />
 
       <div
-        className="relative w-full bg-cover bg-center bg-no-repeat py-14 sm:bg-fixed"
+        className="parallax-bg relative w-full bg-cover bg-center bg-no-repeat py-14"
         style={{ backgroundImage: `url(${bgImg})` }}
       >
         <div className="absolute inset-0 z-[1] h-full w-full bg-black/70" />
 
-        <div className="relative z-[2] mx-auto flex w-[90%] max-w-[1000px] flex-wrap justify-center gap-6">
+        <div className="relative z-[2] mx-auto grid w-[90%] max-w-[1000px] grid-cols-2 gap-3 sm:gap-6">
           {voices.map((v) => (
             <div
               key={v.name}
-              className="flex w-full max-w-[440px] flex-1 gap-4 rounded-[10px] border border-[#333] bg-panel/60 p-4 text-left"
+              className="flex min-w-0 flex-col items-center gap-3 rounded-[10px] border border-[#333] bg-panel/60 p-3 text-center sm:gap-4 sm:p-5 lg:flex-row lg:items-start lg:p-4 lg:text-left"
             >
               <img
                 src={v.avatar}
@@ -42,14 +42,14 @@ export default function Voices() {
                 height={80}
                 loading="lazy"
                 decoding="async"
-                className="h-20 w-20 shrink-0 rounded-full border-2 border-gold"
+                className="h-14 w-14 shrink-0 rounded-full border-2 border-gold sm:h-20 sm:w-20"
               />
-              <div className="overflow-hidden text-left">
-                <h2 className="text-white">{v.name}</h2>
-                <p className="text-sm font-bold uppercase tracking-wider text-gold">
+              <div className="min-w-0 break-words">
+                <h2 className="text-[15px] leading-tight text-white sm:text-base">{v.name}</h2>
+                <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-gold sm:text-sm sm:tracking-wider">
                   {v.role}
                 </p>
-                <p className="text-[#e0e0e0]">{v.text}</p>
+                <p className="mt-2 text-[13px] leading-snug text-[#e0e0e0] sm:text-base sm:leading-normal">{v.text}</p>
               </div>
             </div>
           ))}
