@@ -20,7 +20,7 @@ const dust = [
 export default function Hero() {
   return (
     <div
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat sm:bg-fixed"
+      className="parallax-bg full-screen relative flex w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       <div className="absolute inset-0 z-[1] h-full w-full bg-black/70" />
