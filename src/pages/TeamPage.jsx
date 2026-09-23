@@ -1,0 +1,70 @@
+import PageHeader from "../components/PageHeader";
+import { team } from "../data/team";
+import { useTilt } from "../hooks/useTilt";
+import Icon from "../components/Icon";
+
+const socialLinks = [
+  { icon: "facebook", href: "https://www.facebook.com", label: "Facebook" },
+  { icon: "x-twitter", href: "https://www.x.com", label: "X" },
+  { icon: "linkedin", href: "https://www.linkedin.com", label: "LinkedIn" },
+];
+
+function TeamCard({ member }) {
+  const tilt = useTilt(5);
+  return (
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className={`${tilt.className} overflow-hidden rounded-[10px] border border-[#222] bg-panel p-5 text-center hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]`}
+    >
+      <img
+        src={member.img}
+        alt={member.name}
+        width={200}
+        height={200}
+        loading="lazy"
+        decoding="async"
+        className="relative z-[2] mx-auto mb-4 aspect-square w-full max-w-[180px] rounded-[10px] border-2 border-gold object-cover"
+      />
+      <div className="relative z-[2]">
+        <h2 className="text-[20px] text-gold">{member.name}</h2>
+        <p className="text-sm italic tracking-widest text-wheat">{member.role}</p>
+        <p className="mt-3 text-sm normal-case text-[#aaa]">{member.bio}</p>
+
+        <div className="mt-4 flex items-center justify-center gap-3">
+          {socialLinks.map((s) => (
+            <a
+              key={s.icon}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${member.name} on ${s.label}`}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-gold text-sm text-gold no-underline transition duration-300 hover:-translate-y-0.5 hover:bg-gold hover:text-black"
+            >
+              <Icon name={s.icon} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function TeamPage() {
+  return (
+    <div>
+      <PageHeader
+        title="Our Team"
+        subtitle="Archaeologists, conservators, and technologists working together to bring ancient Egypt to the world."
+        crumb="Team"
+      />
+
+      <div className="mx-auto mt-10 grid w-[90%] max-w-[1200px] grid-cols-1 gap-6 pb-20 sm:grid-cols-2 lg:grid-cols-3">
+        {team.map((member) => (
+          <TeamCard key={member.name} member={member} />
+        ))}
+      </div>
+    </div>
+  );
+}

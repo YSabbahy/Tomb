@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Connect to the font host early, then load the fonts as a
+         non-render-blocking stylesheet (moved out of CSS @import, which
+         forces the browser to wait for index.css before it can even start
+         fetching the font CSS). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600;700&display=swap"
+    />
+
+    <!-- Hero background is the largest image on the first paint; preloading
+         it lets the browser start the download in parallel with the JS
+         bundle instead of waiting to discover it via the CSS background. -->
+    <link rel="preload" as="image" href="%BASE_URL%hero-bg.webp" fetchpriority="high" />
+
+    <title>Lost Tomb Explorer | Grand Egyptian Museum</title>
+    <meta
+      name="description"
+      content="Explore the Grand Egyptian Museum's Lost Tomb Explorer: browse verified artifacts, read the latest excavation discoveries, follow a timeline of Ancient Egypt, and book your museum visit online."
+    />
+    <meta property="og:title" content="Lost Tomb Explorer | Grand Egyptian Museum" />
+    <meta
+      property="og:description"
+      content="Discover the secrets of the Pharaohs — browse artifacts, excavation news, and book your visit."
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
