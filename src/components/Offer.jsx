@@ -36,12 +36,12 @@ const offers = [
 
 function OfferBox({ icon, title, text }) {
   return (
-    <div className="group relative flex min-h-[230px] flex-col overflow-hidden rounded-[10px] border border-[#252525] bg-panel-2 p-5 text-center transition duration-500 hover:-translate-y-1 hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]">
+    <div className="group relative flex min-h-0 flex-col overflow-hidden rounded-[10px] border border-[#252525] bg-panel-2 p-3 sm:min-h-[230px] sm:p-5 text-center transition duration-500 hover:-translate-y-1 hover:border-gold hover:shadow-[0_18px_40px_-20px_rgba(212,175,55,0.45)]">
       <span className="absolute inset-0 z-[1] h-0 w-0 bg-gold/10 transition-all duration-500 group-hover:h-full group-hover:w-full" />
-      <Icon name={icon} className="relative z-[2] mb-4 text-left text-4xl text-gold" />
+      <Icon name={icon} className="relative z-[2] mb-3 text-left text-3xl text-gold sm:mb-4 sm:text-4xl" />
       <div className="relative z-[2] text-left">
-        <h2 className="transition-colors duration-500 group-hover:text-gold">{title}</h2>
-        <p className="mt-1 transition-colors duration-500 group-hover:text-white">{text}</p>
+        <h2 className="text-[15px] leading-tight transition-colors duration-500 group-hover:text-gold sm:text-base">{title}</h2>
+        <p className="mt-1 text-[13px] leading-snug transition-colors duration-500 group-hover:text-white sm:text-base sm:leading-normal">{text}</p>
       </div>
     </div>
   );
@@ -52,7 +52,7 @@ export default function Offer() {
     <div>
       <SectionTitle title="What We Offer" />
 
-      <div className="mx-auto mt-8 grid w-[90%] max-w-[1200px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="card-grid mx-auto mt-8 w-[90%] max-w-[1200px]">
         {offers.map((b) => (
           <OfferBox key={b.title} {...b} />
         ))}
