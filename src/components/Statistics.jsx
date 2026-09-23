@@ -23,7 +23,7 @@ function StatItem({ icon, value, label }) {
 export default function Statistics() {
   return (
     <div
-      className="relative mt-[100px] w-full bg-cover bg-center bg-no-repeat py-16 sm:bg-fixed"
+      className="parallax-bg relative mt-[100px] w-full bg-cover bg-center bg-no-repeat py-16"
       style={{ backgroundImage: `url(${statsImg})` }}
     >
       <div className="absolute inset-0 h-full w-full bg-black/75" />
