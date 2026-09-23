@@ -15,14 +15,14 @@ function FeaturedBox({ slug, title, img }) {
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className={`${tilt.className} group relative block h-[250px] w-full overflow-hidden rounded-[10px] bg-cover bg-center text-center no-underline`}
+      className={`${tilt.className} group relative block h-[170px] w-full sm:h-[250px] overflow-hidden rounded-[10px] bg-cover bg-center text-center no-underline`}
       style={{ backgroundImage: `url(${img})` }}
     >
       <span className="absolute inset-0 top-0 left-0 z-[1] box-border h-0 w-full border-2 border-gold bg-black/60 transition-all duration-500 group-hover:h-full" />
 
       {/* Always-visible title bar so the artifact name is readable on touch devices too */}
-      <div className="absolute inset-x-0 bottom-0 z-[2] bg-gradient-to-t from-black/85 to-transparent px-3 pb-3 pt-8 text-left transition-opacity duration-300 group-hover:opacity-0">
-        <h2 className="text-lg text-white">{title}</h2>
+      <div className="absolute inset-x-0 bottom-0 z-[2] bg-gradient-to-t from-black/85 to-transparent px-2 pb-2 pt-8 text-left sm:px-3 sm:pb-3 transition-opacity duration-300 group-hover:opacity-0">
+        <h2 className="text-sm leading-tight text-white sm:text-lg">{title}</h2>
       </div>
 
       {/* Fuller reveal on hover for pointer devices */}
@@ -40,7 +40,7 @@ export default function Featured() {
     <div>
       <SectionTitle title="Featured Artifacts" tight />
 
-      <div className="mx-auto grid w-[90%] max-w-[1200px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="card-grid mx-auto w-[90%] max-w-[1200px]">
         {featured.map((b) => (
           <FeaturedBox key={b.slug} {...b} />
         ))}
