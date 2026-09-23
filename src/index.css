@@ -20,6 +20,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
+  /* Stop iPhone Safari from inflating text sizes in landscape. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -314,4 +317,69 @@ p {
   width: 0%;
   background: var(--color-gold);
   transition: width 0.1s linear;
+}
+
+/* ---------- iOS / touch fixes ---------- */
+/* iOS Safari does not support background-attachment: fixed (the image
+   renders zoomed / jumpy), so the parallax effect is desktop-only. */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .parallax-bg {
+    background-attachment: fixed;
+  }
+}
+
+/* 100vh on iOS includes the collapsed URL bar, which pushes content under
+   it. svh = the small (always-visible) viewport height. */
+.full-screen {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* iOS zooms the whole page when focusing an input whose font-size is under
+   16px. Force 16px on touch devices so the layout never jumps. */
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* ---------- Card grids: 2 columns on phones, 3 on desktop ---------- */
+.card-grid {
+  --gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    --gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* When the last card is alone in its row, centre it instead of leaving
+   an empty hole next to it. */
+@media (max-width: 1023px) {
+  .card-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - var(--gap) / 2);
+  }
+}
+
+/* Smaller small-buttons on phones so they fit inside half-width cards. */
+@media (max-width: 639px) {
+  .btn-sm {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.74rem;
+    --clip: 6px;
+  }
 }
