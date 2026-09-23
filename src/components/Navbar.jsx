@@ -151,7 +151,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div id="mobile-menu" className="w-full border-t border-gold/50 bg-[#0d0d0d] px-6 pb-6 pt-4 xl:hidden">
+        <div id="mobile-menu" className="max-h-[calc(100svh-55px)] w-full overflow-y-auto overscroll-contain border-t border-gold/50 bg-[#0d0d0d] px-6 pb-6 pt-4 xl:hidden">
           <form onSubmit={handleSubmitSearch} className="relative mb-4">
             <input
               type="text"
