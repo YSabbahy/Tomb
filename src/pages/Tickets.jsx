@@ -99,20 +99,20 @@ export default function Tickets() {
       />
 
       <div className="mx-auto mt-10 w-[90%] max-w-[1200px] pb-20">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="card-grid">
           {plans.map((plan) => (
             <button
               key={plan.id}
               onClick={() => setSelectedPlan(plan.id)}
-              className={`rounded-[10px] border p-5 text-left transition duration-300 ${
+              className={`min-w-0 rounded-[10px] border p-3 text-left transition duration-300 sm:p-5 ${
                 selectedPlan === plan.id
                   ? "border-gold bg-gold/10"
                   : "border-[#333] bg-panel hover:border-gold/60"
               }`}
             >
-              <h2 className="text-lg text-gold">{plan.name}</h2>
-              <p className="mt-1 text-2xl text-white">{plan.price}</p>
-              <ul className="mt-3 space-y-1 text-sm text-[#aaa]">
+              <h2 className="text-[15px] leading-tight text-gold sm:text-lg">{plan.name}</h2>
+              <p className="mt-1 text-xl text-white sm:text-2xl">{plan.price}</p>
+              <ul className="mt-3 space-y-1 text-xs text-[#aaa] sm:text-sm">
                 {plan.features.map((f) => (
                   <li key={f}>
                     <Icon name="check" className="mr-1 text-gold" /> {f}
